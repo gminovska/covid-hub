@@ -2,9 +2,21 @@ import React from "react";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "../src/theme";
+import { useMediaQuery, createMuiTheme } from "@material-ui/core";
+//@ts-ignore
+import ArchiaWoff2 from "../fonts/archia-regular-webfont.woff2";
 
+const archia = {
+  fontFamily: "Archia",
+  fontStyle: "normal",
+  fontWeight: 400,
+  src: `
+    local('Archia-Regular'),
+    url(${ArchiaWoff2}) format('woff2')
+  `,
+};
 export default function MyApp(props) {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const { Component, pageProps } = props;
 
   React.useEffect(() => {
@@ -15,6 +27,43 @@ export default function MyApp(props) {
     }
   }, []);
 
+  const theme = React.useMemo(
+    () =>
+      createMuiTheme({
+        typography: {
+          fontFamily: [
+            "Archia",
+            "-apple-system",
+            "BlinkMacSystemFont",
+            '"Segoe UI"',
+            "Roboto",
+            '"Helvetica Neue"',
+            "Arial",
+            "sans-serif",
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+          ].join(","),
+        },
+        overrides: {
+          MuiCssBaseline: {
+            "@global": {
+              "@font-face": [archia],
+            },
+          },
+        },
+        palette: {
+          type: prefersDarkMode ? "dark" : "light",
+          // primary: {
+          //   main: "#222c45",
+          // },
+          // secondary: {
+          //   main: "#19857b",
+          // },
+        },
+      }),
+    [prefersDarkMode]
+  );
   return (
     <React.Fragment>
       <Head>
