@@ -1,18 +1,12 @@
 import React from "react";
+import dynamic from "next/dynamic";
 
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import SearchAppBar from "../src/header";
+const Dashboard = dynamic(() => import("../src/Dashboard"), { ssr: false }); // because it uses navigator object
 
 export default function Index() {
   return (
     <>
-      <SearchAppBar />
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js example
-        </Typography>
-      </Box>
+      <Dashboard />
     </>
   );
 }
