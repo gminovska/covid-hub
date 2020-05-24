@@ -11,6 +11,7 @@
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.53",
+    "accept-language-parser": "^1.5.0",
     "axios": "^0.19.2",
     "babel-plugin-react-intl": "^7.5.8",
     "next": "9.4.1",
@@ -18,6 +19,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-intl": "^4.5.4",
+    "timeago-react": "^3.0.0",
     "use-axios-request": "^0.3.0"
   },
   "devDependencies": {
