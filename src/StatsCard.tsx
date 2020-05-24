@@ -1,80 +1,71 @@
 import React from "react";
 import {
-  Paper,
   Typography,
   makeStyles,
   Theme,
   createStyles,
-  Divider,
   Grid,
+  Card,
+  CardHeader,
 } from "@material-ui/core";
-import { Skeleton } from "@material-ui/lab";
-import { useAxiosRequest } from "use-axios-request";
-interface StatsCardProps {}
+import { FormattedNumber } from "react-intl";
+import StatsSkeleton from "./StatsSkeleton";
+
+interface StatsCardProps {
+  title: string;
+  totalNumber: number | false;
+  newNumber: number | false;
+}
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      padding: theme.spacing(3),
-    },
     mainTitle: {
       fontSize: theme.typography.h6.fontSize,
       marginBottom: theme.spacing(3),
     },
     subtitle: {
-      textTransform: "uppercase",
+      fontWeight: 700,
       marginBottom: theme.spacing(2),
       color: theme.palette.primary.main,
     },
-    statsGroup: {
-      marginTop: theme.spacing(3),
+
+    statsBlock: {
+      textAlign: "center",
+    },
+    mainNumber: {
+      fontSize: theme.typography.h6.fontSize,
+      fontWeight: 700,
     },
   })
 );
-const StatsCard = (props: StatsCardProps) => {
-  const { isFetching, error, data } = useAxiosRequest(
-    `https://disease.sh/v2/all?yesterday=true`
-  );
 
-  console.log(isFetching);
+const StatsCard = (props: StatsCardProps) => {
+  const { title, totalNumber, newNumber } = props;
+  console.log(props);
   const classes = useStyles();
   return (
-    <Paper elevation={0} className={classes.root}>
-      <Typography variant="h1" className={classes.mainTitle}>
-        Worldwide
-      </Typography>
-      <Divider light />
-      <Grid
-        className={classes.statsGroup}
-        container
-        spacing={1}
-        direction="row"
-        justify="space-around"
-        alignItems="flex-start"
-        alignContent="stretch"
-        wrap="wrap"
-      >
-        <Grid item>
-          <Typography className={classes.subtitle}>Confirmed</Typography>
-          <Typography>
-            {isFetching && (
-              <>
-                <Skeleton animation="wave" />
-                <Skeleton animation="wave" />
-              </>
-            )}
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Typography className={classes.subtitle}>Active</Typography>
-        </Grid>
-        <Grid item>
-          <Typography className={classes.subtitle}>Recovered</Typography>
-        </Grid>
-        <Grid item>
-          <Typography className={classes.subtitle}>Passed</Typography>
-        </Grid>
-      </Grid>
-    </Paper>
+    <Grid item xs={12} sm className={classes.statsBlock}>
+      <Card raised>
+        <CardHeader
+          title={<Typography className={classes.subtitle}>{title}</Typography>}
+        ></CardHeader>
+
+        <Typography component="section">
+          {newNumber && totalNumber ? (
+            <>
+              <Typography paragraph className={classes.mainNumber}>
+                <FormattedNumber value={totalNumber} />
+              </Typography>
+              <Typography paragraph color="textSecondary">
+                [ +
+                <FormattedNumber value={newNumber} />]
+              </Typography>
+            </>
+          ) : (
+            <StatsSkeleton />
+          )}
+        </Typography>
+      </Card>
+    </Grid>
   );
 };
 

@@ -1,22 +1,21 @@
 import React from "react";
 import { makeStyles, Theme, createStyles, Container } from "@material-ui/core";
+import CountryCard from "./CountryCard";
 
-import StatsCard from "./StatsCard";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
       marginTop: "60px",
-      flexGrow: 1,
       padding: theme.spacing(3),
     },
   })
 );
-const MainContent = () => {
+const MainContent = (props) => {
   const classes = useStyles();
   return (
     <Container>
       <main className={classes.content}>
-        <StatsCard />
+        <CountryCard lang={props.lang} />
       </main>
     </Container>
   );
