@@ -12,7 +12,7 @@ import { FormattedNumber } from "react-intl";
 import StatsSkeleton from "./StatsSkeleton";
 
 interface StatsCardProps {
-  title: string;
+  title: React.ReactNode | string;
   totalNumber: number | false;
   newNumber: number | false;
 }

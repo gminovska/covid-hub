@@ -1,3 +1,6 @@
 {
-	"helloWorld": "Hello World"
+	"confirmed": "Confirmed",
+	"helloWorld": "Hello World",
+	"passed": "Passed",
+	"recovered": "Recovered"
 }

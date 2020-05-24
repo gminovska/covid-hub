@@ -1,3 +1,6 @@
 {
-	"helloWorld": "Zdravo Svete!"
+	"confirmed": "Potvrđeni",
+	"helloWorld": "Zdravo Svete!",
+	"passed": "Preminuli",
+	"recovered": "Izlečeni"
 }

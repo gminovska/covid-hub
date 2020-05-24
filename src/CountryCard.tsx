@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { useAxiosRequest } from "use-axios-request";
+import { FormattedMessage } from "react-intl";
 import StatsCard from "./StatsCard";
 import TimeAgo from "timeago-react";
 import * as timeago from "timeago.js";
@@ -96,9 +97,18 @@ const CountryCard = (props: CountryCardProps) => {
         alignItems="stretch"
         spacing={1}
       >
-        <StatsCard {...confirmedCardProps} title="Confirmed" />
-        <StatsCard {...recoveredCardProps} title="Recovered" />
-        <StatsCard {...passedCardProps} title="Passed" />
+        <StatsCard
+          {...confirmedCardProps}
+          title={<FormattedMessage id="confirmed" defaultMessage="Confirmed" />}
+        />
+        <StatsCard
+          {...recoveredCardProps}
+          title={<FormattedMessage id="recovered" defaultMessage="Recovered" />}
+        />
+        <StatsCard
+          {...passedCardProps}
+          title={<FormattedMessage id="passed" defaultMessage="Passed" />}
+        />
       </Grid>
     </Paper>
   );
