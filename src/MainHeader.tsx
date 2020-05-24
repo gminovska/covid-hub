@@ -41,9 +41,9 @@ export default function Header() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="fixed" className={classes.appBar} color="transparent">
         <Toolbar>
-          <Typography variant="h4" noWrap>
+          <Typography color="primary" variant="h4" noWrap>
             CovidHub
           </Typography>
         </Toolbar>
