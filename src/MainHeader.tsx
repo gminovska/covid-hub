@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
     },
     logo: {
-      maxHeight: "54px",
-      marginRight: "5px",
+      maxHeight: 54,
+      marginRight: 5,
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,

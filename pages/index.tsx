@@ -3,13 +3,15 @@ import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next";
 import parser from "accept-language-parser";
 import { IntlProvider } from "react-intl";
-import Header from "../src/MainHeader";
+// import Header from "../src/MainHeader";
 import MainContent from "../src/MainContent";
-
+import { Layout, Card, Button } from "antd";
 import enUS from "../translations/en-US.json";
 import sr from "../translations/sr-latn-RS.json";
 import de from "../translations/de-DE.json";
-
+import "../src/styles/index.less";
+import TheHeader from "../src/TheHeader";
+const { Footer, Content } = Layout;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const userLanguage = parser.pick(
     ["en", "sr", "de"],
@@ -37,8 +39,18 @@ export default function Index(props) {
       defaultLocale="en-US"
       messages={message[props.lang]}
     >
-      <Header />
-      <MainContent lang={props.lang} />
+      <Layout>
+        <TheHeader />
+        <Content style={{ minHeight: "calc(100vh - 134px)", padding: "24px" }}>
+          <Card title="test">
+            <Button type="primary">Hello world</Button>
+          </Card>
+        </Content>
+        <Footer style={{ textAlign: "center" }}>Footer</Footer>
+      </Layout>
+
+      {/* <Header />
+      <MainContent lang={props.lang} /> */}
     </IntlProvider>
   );
 }
