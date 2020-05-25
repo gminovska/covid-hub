@@ -4,7 +4,6 @@ import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 
 const drawerWidth = 240;
@@ -13,6 +12,10 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "flex",
+    },
+    logo: {
+      maxHeight: "54px",
+      marginRight: "5px",
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
@@ -43,9 +46,12 @@ export default function Header() {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar} color="transparent">
         <Toolbar>
-          <Typography color="primary" variant="h4" noWrap>
-            CovidHub
-          </Typography>
+          <img
+            src="CovidHubLogo.png"
+            alt="CovidHub logo"
+            className={classes.logo}
+          />
+          <Typography variant={"h5"}>CovidHub</Typography>
         </Toolbar>
       </AppBar>
       {/* <Drawer

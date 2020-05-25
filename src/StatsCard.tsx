@@ -9,12 +9,11 @@ import {
   CardHeader,
 } from "@material-ui/core";
 import { FormattedNumber } from "react-intl";
-import StatsSkeleton from "./StatsSkeleton";
 
 interface StatsCardProps {
   title: React.ReactNode | string;
-  totalNumber: number | false;
-  newNumber: number | false;
+  totalNumber: number;
+  newNumber: number;
 }
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,21 +47,14 @@ const StatsCard = (props: StatsCardProps) => {
         <CardHeader
           title={<Typography className={classes.subtitle}>{title}</Typography>}
         ></CardHeader>
-
         <Typography component="section">
-          {newNumber && totalNumber ? (
-            <>
-              <Typography paragraph className={classes.mainNumber}>
-                <FormattedNumber value={totalNumber} />
-              </Typography>
-              <Typography paragraph color="textSecondary">
-                [ +
-                <FormattedNumber value={newNumber} />]
-              </Typography>
-            </>
-          ) : (
-            <StatsSkeleton />
-          )}
+          <Typography paragraph className={classes.mainNumber}>
+            <FormattedNumber value={totalNumber} />
+          </Typography>
+          <Typography paragraph color="textSecondary">
+            [ +
+            <FormattedNumber value={newNumber} />]
+          </Typography>
         </Typography>
       </Card>
     </Grid>

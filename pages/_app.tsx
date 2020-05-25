@@ -56,7 +56,7 @@ export default function MyApp(props) {
         palette: {
           type: prefersDarkMode ? "dark" : "light",
           primary: {
-            main: prefersDarkMode ? "#64f1ff" : "#ef1282", // #65f5e8, #00bcdc
+            main: prefersDarkMode ? "#64f1ff" : "#0839DD", // #65f5e8, #00bcdc
           },
           secondary: {
             main: prefersDarkMode ? "#FCD92A" : "#g3g3g3", // #a4afb7, #d6cfab

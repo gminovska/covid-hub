@@ -8,15 +8,16 @@ import {
   Grid,
 } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
-import { useAxiosRequest } from "use-axios-request";
 import { FormattedMessage } from "react-intl";
 import StatsCard from "./StatsCard";
 import TimeAgo from "timeago-react";
 import * as timeago from "timeago.js";
 import sr from "timeago.js/lib/lang/sr";
+import { ICumulativeData } from "./MainContent";
 timeago.register("sr", sr);
 interface CountryCardProps {
   lang: string;
+  data: ICumulativeData;
 }
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -33,18 +34,14 @@ const useStyles = makeStyles((theme: Theme) =>
 const CountryCard = (props: CountryCardProps) => {
   const [selectedCountry, setSelectedCountry] = React.useState("Global");
   const [countriesObj, setCountriesObj] = React.useState<object | undefined>();
-  const { isFetching, error, data } = useAxiosRequest<any>(
-    `https://api.covid19api.com/summary`
-  );
-
-  console.log(countriesObj);
+  const { data } = props;
+  console.log(countriesObj, data);
   const classes = useStyles();
 
   React.useEffect(() => {
     if (data) {
       const newData = { Global: data.Global };
       data.Countries.map((a) => (newData[a.Country] = { ...a }));
-      console.log(newData);
       setCountriesObj(newData);
     }
   }, [data]);
@@ -66,6 +63,7 @@ const CountryCard = (props: CountryCardProps) => {
     newNumber: statsCardData && statsCardData.NewDeaths,
     totalNumber: statsCardData && statsCardData.TotalDeaths,
   };
+
   return (
     <Paper elevation={0} className={classes.root}>
       <Autocomplete
@@ -81,7 +79,13 @@ const CountryCard = (props: CountryCardProps) => {
             {...params}
             label={"Country"}
             helperText={
-              data && <TimeAgo datetime={data.Date} locale={props.lang} />
+              data && (
+                <TimeAgo
+                  datetime={data.Date}
+                  locale={props.lang}
+                  live={false}
+                />
+              )
             }
             variant="standard"
             inputProps={{
