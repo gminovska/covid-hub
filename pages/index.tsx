@@ -11,6 +11,8 @@ import sr from "../translations/sr-latn-RS.json";
 import de from "../translations/de-DE.json";
 import "../src/styles/index.less";
 import TheHeader from "../src/TheHeader";
+import TheContent from "../src/TheContent";
+import TheFooter from "../src/TheFooter";
 const { Footer, Content } = Layout;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const userLanguage = parser.pick(
@@ -41,16 +43,9 @@ export default function Index(props) {
     >
       <Layout>
         <TheHeader />
-        <Content style={{ minHeight: "calc(100vh - 134px)", padding: "24px" }}>
-          <Card title="test">
-            <Button type="primary">Hello world</Button>
-          </Card>
-        </Content>
-        <Footer style={{ textAlign: "center" }}>Footer</Footer>
+        <TheContent />
+        <TheFooter />
       </Layout>
-
-      {/* <Header />
-      <MainContent lang={props.lang} /> */}
     </IntlProvider>
   );
 }
