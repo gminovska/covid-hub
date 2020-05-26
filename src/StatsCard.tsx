@@ -1,63 +1,39 @@
 import React from "react";
-import {
-  Typography,
-  makeStyles,
-  Theme,
-  createStyles,
-  Grid,
-  Card,
-  CardHeader,
-} from "@material-ui/core";
 import { FormattedNumber } from "react-intl";
-
+import { createUseStyles } from "react-jss";
+import { Col, Typography, Card } from "antd";
+const useStyles = createUseStyles({
+  statsCard: {
+    width: "100%",
+    textAlign: "center",
+  },
+  totalNumber: {
+    fontSize: "1.7em",
+    marginBottom: "12px",
+  },
+  newNumber: {},
+});
 interface StatsCardProps {
   title: React.ReactNode | string;
   totalNumber: number;
   newNumber: number;
 }
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    mainTitle: {
-      fontSize: theme.typography.h6.fontSize,
-      marginBottom: theme.spacing(3),
-    },
-    subtitle: {
-      fontWeight: 700,
-      marginBottom: theme.spacing(2),
-      color: theme.palette.primary.main,
-    },
-
-    statsBlock: {
-      textAlign: "center",
-    },
-    mainNumber: {
-      fontSize: theme.typography.h6.fontSize,
-      fontWeight: 700,
-    },
-  })
-);
 
 const StatsCard = (props: StatsCardProps) => {
   const { title, totalNumber, newNumber } = props;
-  console.log(props);
-  const classes = useStyles();
+  const styles = useStyles();
   return (
-    <Grid item xs={12} sm className={classes.statsBlock}>
-      <Card raised>
-        <CardHeader
-          title={<Typography className={classes.subtitle}>{title}</Typography>}
-        ></CardHeader>
-        <Typography component="section">
-          <Typography paragraph className={classes.mainNumber}>
-            <FormattedNumber value={totalNumber} />
-          </Typography>
-          <Typography paragraph color="textSecondary">
-            [ +
-            <FormattedNumber value={newNumber} />]
-          </Typography>
-        </Typography>
+    <Col xs={24} md={8}>
+      <Card className={styles.statsCard} hoverable>
+        <Typography.Paragraph>{title}</Typography.Paragraph>
+        <Typography.Paragraph className={styles.totalNumber}>
+          <FormattedNumber value={totalNumber} />
+        </Typography.Paragraph>
+        <Typography.Paragraph className={styles.newNumber} type="warning">
+          [ +<FormattedNumber value={newNumber} />]
+        </Typography.Paragraph>
       </Card>
-    </Grid>
+    </Col>
   );
 };
 
