@@ -4,7 +4,7 @@ module.exports = withFonts(
   withLess({
     lessLoaderOptions: {
       modifyVars: {
-        "@primary-color": "#1da57a",
+        "@primary-color": "#64f1ff",
         "@font-family": "Archia",
       },
       javascriptEnabled: true,
