@@ -10,7 +10,7 @@ const useStyles = createUseStyles({
     padding: "0 24px",
   },
   logo: {
-    maxHeight: 54,
+    maxHeight: 40,
     marginRight: 5,
   },
   appTitle: {
