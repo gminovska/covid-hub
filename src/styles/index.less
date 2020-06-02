@@ -1,8 +1,15 @@
 @import "~antd/dist/antd.dark.less";
+@import "./srollbars.less";
 @font-face {
   font-family: "Archia";
+  font-display: swap;
   src: url("./fonts/archia-regular-webfont.woff") format("woff"),
     url("./fonts//archia-regular-webfont.woff2") format("woff2"),
     url("./fonts/archia-regular-webfont.ttf") format("ttf"),
     url("./fonts/archia-regular-webfont.eot") format("eot");
+}
+
+// fix transparent background
+td.ant-table-column-sort {
+  background: rgb(16, 16, 16);
 }
