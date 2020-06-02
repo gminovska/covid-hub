@@ -1,5 +1,5 @@
 import React from "react";
-import Document from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { SheetsRegistry, JssProvider, createGenerateId } from "react-jss";
 
 export default class JssDocument extends Document {
@@ -27,5 +27,17 @@ export default class JssDocument extends Document {
         </>
       ),
     };
+  }
+
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
