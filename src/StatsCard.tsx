@@ -2,6 +2,7 @@ import React from "react";
 import { FormattedNumber } from "react-intl";
 import { createUseStyles } from "react-jss";
 import { Col, Typography, Card } from "antd";
+
 const useStyles = createUseStyles({
   statsCard: {
     width: "100%",
@@ -17,10 +18,11 @@ interface StatsCardProps {
   title: React.ReactNode | string;
   totalNumber: number;
   newNumber: number;
+  type?: "secondary" | "danger" | "warning";
 }
 
 const StatsCard = (props: StatsCardProps) => {
-  const { title, totalNumber, newNumber } = props;
+  const { title, totalNumber, newNumber, type } = props;
   const styles = useStyles();
   return (
     <Col xs={24} md={8}>
@@ -29,7 +31,10 @@ const StatsCard = (props: StatsCardProps) => {
         <Typography.Paragraph className={styles.totalNumber}>
           <FormattedNumber value={totalNumber} />
         </Typography.Paragraph>
-        <Typography.Paragraph className={styles.newNumber} type="warning">
+        <Typography.Paragraph
+          className={styles.newNumber}
+          type={type || "warning"}
+        >
           [ +<FormattedNumber value={newNumber} />]
         </Typography.Paragraph>
       </Card>
