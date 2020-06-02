@@ -5,6 +5,7 @@ import CountrySelectCard from "./CountrySelectCard";
 import useRequest from "./hooks/useRequest";
 import { ICumulativeData } from "./types";
 import { AxiosError } from "axios";
+import CountriesTable from "./CountriesTable";
 const { Content } = Layout;
 
 const useStyles = createUseStyles({
@@ -18,14 +19,19 @@ const TheContent = () => {
     ICumulativeData,
     AxiosError<Error>
   >({
-    url: `https://api.covid19api.com/summary`,
+    url: `/api/cumulative`,
   });
+
   const styles = useStyles();
   return (
     <Content className={styles.content}>
       <CountrySelectCard
         data={data}
         error={error}
+        isValidating={isValidating}
+      />
+      <CountriesTable
+        data={data && data.Countries}
         isValidating={isValidating}
       />
     </Content>
