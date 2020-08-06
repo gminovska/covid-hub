@@ -1,3 +1,9 @@
 {
-	"helloWorld": "Hallo, Welt!"
+	"confirmed": "Bestätigt",
+	"helloWorld": "Hallo, Welt!",
+	"location": "Ort",
+	"new": "Neu",
+	"passed": "Tot",
+	"recovered": "Wiederhergestellt",
+	"total": "Gesamt"
 }

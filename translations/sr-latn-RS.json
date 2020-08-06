@@ -1,6 +1,9 @@
 {
 	"confirmed": "Potvrđeni",
 	"helloWorld": "Zdravo Svete!",
+	"location": "Lokacija",
+	"new": "Novi",
 	"passed": "Preminuli",
-	"recovered": "Izlečeni"
+	"recovered": "Izlečeni",
+	"total": "Ukupno"
 }
