@@ -1,13 +1,14 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { Layout, Card } from "antd";
 import { createUseStyles } from "react-jss";
-import CountrySelectCard from "./CountrySelectCard";
 import useRequest from "./hooks/useRequest";
 import { ICumulativeData } from "./types";
 import { AxiosError } from "axios";
-import CountriesTable from "./CountriesTable";
-const { Content } = Layout;
 
+const { Content } = Layout;
+const CountrySelectCard = dynamic(() => import("./CountrySelectCard"));
+const CountriesTable = dynamic(() => import("./CountriesTable"));
 const useStyles = createUseStyles({
   content: {
     minHeight: "calc(100vh - 134px)",

@@ -16,11 +16,18 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>CovidHub</title>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
+        <meta name="description" content="Description" />
+        <meta name="keywords" content="Keywords" />
+        <title>CovidHub</title>
+
+        <link href="/manifest.json" rel="manifest" />
+        <link rel="icon" href="/images/icon-129x129.png" />
       </Head>
 
       <Component {...pageProps} />

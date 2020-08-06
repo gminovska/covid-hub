@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
 });
 const TheFooter = () => {
   const styles = useStyles();
-  return <Footer className={styles.footer}>Footer</Footer>;
+  return <Footer className={styles.footer}>Made by Gordana &copy; 2020</Footer>;
 };
 
 export default TheFooter;

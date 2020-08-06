@@ -114,6 +114,7 @@ const CountriesTable = ({ data, isValidating }) => {
       dataSource={data}
       onChange={onChange}
       scroll={{ x: 750, y: 500 }}
+      style={{ marginTop: "12px" }}
     />
   );
 };
