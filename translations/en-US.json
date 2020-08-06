@@ -1,6 +1,9 @@
 {
 	"confirmed": "Confirmed",
 	"helloWorld": "Hello World",
+	"location": "Location",
+	"new": "New",
 	"passed": "Passed",
-	"recovered": "Recovered"
+	"recovered": "Recovered",
+	"total": "Total"
 }

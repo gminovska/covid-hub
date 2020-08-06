@@ -1,0 +1,24 @@
+// source: https://alligator.io/css/css-scrollbars/
+
+@scroll-background: #262626;
+@scroll-thumb: #afafaf;
+@scroll-width: 6px;
+@border-radius: 5px;
+/* The emerging W3C standard
+   that is currently Firefox-only */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: @scroll-thumb @scroll-background;
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: @scroll-width;
+}
+*::-webkit-scrollbar-track {
+  background: @scroll-background;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: @scroll-thumb;
+  border-radius: @border-radius;
+}

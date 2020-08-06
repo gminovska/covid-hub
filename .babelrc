@@ -6,6 +6,13 @@
       {
         "messagesDir": "./translations/messages"
       }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
     ]
   ]
 }

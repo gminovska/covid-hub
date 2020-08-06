@@ -8,20 +8,24 @@
     "start": "next start"
   },
   "dependencies": {
-    "@material-ui/core": "^4.9.14",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.53",
+    "@zeit/next-less": "^1.0.1",
     "accept-language-parser": "^1.5.0",
+    "antd": "^4.2.5",
     "axios": "^0.19.2",
+    "babel-plugin-import": "^1.13.0",
     "babel-plugin-react-intl": "^7.5.8",
+    "less": "^3.11.1",
     "next": "9.4.1",
+    "next-compose-plugins": "^2.2.0",
     "next-fonts": "^1.1.0",
+    "next-pwa": "^2.5.0",
+    "null-loader": "^4.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-intl": "^4.5.4",
+    "react-jss": "^10.1.1",
     "swr": "^0.2.2",
-    "timeago-react": "^3.0.0",
-    "use-axios-request": "^0.3.0"
+    "timeago-react": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.1",
